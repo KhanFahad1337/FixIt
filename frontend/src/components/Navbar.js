@@ -23,17 +23,17 @@ export default function Navbar() {
         <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <i className="bi bi-list fs-3"></i>
         </button>
+        <div className="d-flex align-items-center order-last">
+          <button className="theme-toggle me-2" onClick={toggle} title={`Switch to ${dark ? 'light' : 'dark'} mode`}>
+            <i className={`bi ${dark ? 'bi-sun' : 'bi-moon-stars'}`}></i>
+          </button>
+        </div>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             {!user && <li className="nav-item"><Link className="nav-link" to="/"><i className="bi bi-house me-1"></i>Home</Link></li>}
             {!user && <li className="nav-item"><Link className="nav-link" to="/services"><i className="bi bi-grid me-1"></i>Services</Link></li>}
           </ul>
           <ul className="navbar-nav align-items-center gap-2">
-            <li className="nav-item">
-              <button className="theme-toggle" onClick={toggle} title={`Switch to ${dark ? 'light' : 'dark'} mode`}>
-                <i className={`bi ${dark ? 'bi-sun' : 'bi-moon-stars'}`}></i>
-              </button>
-            </li>
             {user ? (
               <>
                 <li className="nav-item">
