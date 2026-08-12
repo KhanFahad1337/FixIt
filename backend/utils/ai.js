@@ -7,24 +7,30 @@ function isConfigured() {
 
 async function chat(messages, { temperature = 0.4, json = false } = {}) {
   if (!isConfigured()) return null;
-  const res = await fetch(`${AI_BASE_URL}/chat/completions`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.AI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: AI_MODEL,
-      messages,
-      temperature,
-      ...(json ? { response_format: { type: 'json_object' } } : {}),
-    }),
-  });
-  if (!res.ok) {
-    throw new Error(`AI API error: ${res.status} ${await res.text()}`);
+  try {
+    const res = await fetch(`${AI_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.AI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: AI_MODEL,
+        messages,
+        temperature,
+        ...(json ? { response_format: { type: 'json_object' } } : {}),
+      }),
+    });
+    if (!res.ok) {
+      console.error(`AI API error ${res.status}`);
+      return null;
+    }
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content?.trim() || null;
+  } catch (err) {
+    console.error('AI API call failed:', err.message);
+    return null;
   }
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content?.trim() || null;
 }
 
 async function parseJSON(text) {
