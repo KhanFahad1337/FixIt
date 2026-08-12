@@ -4,7 +4,7 @@
   "description": "FixIt Home Services Marketplace with AI features",
   "private": true,
   "scripts": {
-    "postinstall": "cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "postinstall": "cd backend && npm install && cd ../frontend && npm install --include=dev && npm run build",
     "start": "cd backend && node server.js",
     "build": "cd frontend && npm run build",
     "dev": "cd backend && npm run dev"
