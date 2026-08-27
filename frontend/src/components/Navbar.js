@@ -20,12 +20,12 @@ export default function Navbar() {
           <i className="bi bi-tools me-2 fs-4"></i>
           <span>FixIt</span>
         </Link>
-        <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <i className="bi bi-list fs-3"></i>
-        </button>
-        <div className="d-flex align-items-center order-last">
-          <button className="theme-toggle me-2" onClick={toggle} title={`Switch to ${dark ? 'light' : 'dark'} mode`}>
+        <div className="d-flex align-items-center gap-2 order-lg-last">
+          <button className="theme-toggle" onClick={toggle} title={`Switch to ${dark ? 'light' : 'dark'} mode`}>
             <i className={`bi ${dark ? 'bi-sun' : 'bi-moon-stars'}`}></i>
+          </button>
+          <button className="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i className="bi bi-list fs-3"></i>
           </button>
         </div>
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -38,7 +38,15 @@ export default function Navbar() {
               <>
                 <li className="nav-item">
                   <span className="nav-link d-flex align-items-center gap-1" style={{ color: 'var(--text)' }}>
-                    <i className="bi bi-person-circle fs-5"></i>
+                    <div style={{
+                      width: 32, height: 32, borderRadius: 10,
+                      background: user.role === 'admin' ? 'var(--gradient-accent)' : 'var(--gradient-1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: 'white', fontSize: '0.8rem', fontWeight: 700,
+                      boxShadow: '0 2px 8px rgba(var(--primary-rgb), 0.3)'
+                    }}>
+                      {user.name?.charAt(0)}
+                    </div>
                     <span className="fw-semibold">{user.name}</span>
                     <span className={`badge ${user.role === 'admin' ? 'badge-modern-danger' : user.role === 'subadmin' ? 'badge-modern-warning' : user.role === 'provider' ? 'badge-modern-primary' : 'badge-modern-success'} ms-1`}>
                       {user.role === 'subadmin' ? 'Sub Admin' : user.role}
