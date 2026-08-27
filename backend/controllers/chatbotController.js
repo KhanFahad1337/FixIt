@@ -59,12 +59,7 @@ You have memory of the ongoing conversation — use it to answer follow-ups (e.g
       }
     }
 
-    // Check knowledge base first
-    for (const item of kb) {
-      if (item.keywords.some(k => lower.includes(k))) {
-        return res.json({ reply: item.response });
-      }
-    }
+    // ===== LIVE DATABASE QUERIES FIRST =====
 
     // Handle follow-up questions using remembered context
     const isFollowUp = /what about|and their|how much|is the|them|these|they|other|more/.test(lower);
@@ -100,8 +95,10 @@ You have memory of the ongoing conversation — use it to answer follow-ups (e.g
       }
     }
 
-    // Search/Find queries
-    if (lower.includes('find') || lower.includes('show') || lower.includes('need') || lower.includes('looking') || lower.includes('search') || lower.includes('available')) {
+    // Search/Find queries — top rated, cheapest, all providers
+    const isSearch = /find|show|need|looking|search|available|top|best|cheapest|cheapest|affordable|budget|popular|who.*(is|are)|list/i.test(lower);
+
+    if (isSearch) {
       // Check for cheapest
       if (lower.includes('cheap') || lower.includes('cheapest') || lower.includes('lowest') || lower.includes('affordable') || lower.includes('budget')) {
         const providers = await ServiceProvider.find({ isApproved: true }).sort({ pricePerHour: 1 }).limit(5).select('name profession pricePerHour');
@@ -112,11 +109,11 @@ You have memory of the ongoing conversation — use it to answer follow-ups (e.g
         return res.json({ reply: 'No providers found.' });
       }
 
-      // Check for top rated
-      if (lower.includes('top') || lower.includes('best') || lower.includes('highest rated') || lower.includes('rating') || lower.includes('popular')) {
-        const providers = await ServiceProvider.find({ isApproved: true, rating: { $gt: 0 } }).sort({ rating: -1 }).limit(5).select('name profession rating pricePerHour');
+      // Top rated — check this BEFORE KB so "top rated" doesn't hit the review KB entry
+      if (lower.includes('top') || lower.includes('best') || lower.includes('highest') || lower.includes('popular') || lower.includes('who is') || lower.includes('who are')) {
+        const providers = await ServiceProvider.find({ isApproved: true, rating: { $gt: 0 } }).sort({ rating: -1 }).limit(5).select('name profession rating pricePerHour experience totalReviews');
         if (providers.length > 0) {
-          const list = providers.map((p, i) => `${i + 1}. ${p.name} (${p.profession}) — ⭐${p.rating} — $${p.pricePerHour}/hr`).join('\n');
+          const list = providers.map((p, i) => `${i + 1}. ${p.name} (${p.profession}) — ⭐${p.rating} (${p.totalReviews || 0} reviews) — $${p.pricePerHour}/hr`).join('\n');
           return res.json({ reply: `Top-rated providers:\n${list}` });
         }
         return res.json({ reply: 'No ratings yet.' });
@@ -133,6 +130,13 @@ You have memory of the ongoing conversation — use it to answer follow-ups (e.g
       }
 
       return res.json({ reply: 'What type of provider are you looking for? Try asking for an electrician, plumber, painter, AC technician, carpenter, or cleaner.' });
+    }
+
+    // ===== KNOWLEDGE BASE (only for non-search questions) =====
+    for (const item of kb) {
+      if (item.keywords.some(k => lower.includes(k))) {
+        return res.json({ reply: item.response });
+      }
     }
 
     // Help menu as default
