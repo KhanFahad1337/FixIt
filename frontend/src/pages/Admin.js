@@ -172,13 +172,13 @@ export default function Admin() {
                       <CartesianGrid strokeDasharray="3 3" stroke={dark ? '#333' : '#e0e0e0'} />
                       <XAxis dataKey="date" tick={{ fontSize: 11, fill: dark ? '#aaa' : '#888' }} tickFormatter={d => d.slice(5)} />
                       <YAxis yAxisId="left" tick={{ fontSize: 11, fill: dark ? '#aaa' : '#888' }} />
-                      <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: '#7c3aed' }} />
+                      <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11, fill: dark ? '#059669' : '#059669' }} />
                       <Tooltip
-                        contentStyle={{ background: dark ? '#1a1a2e' : '#fff', border: `1px solid ${dark ? '#333' : '#e0e0e0'}`, borderRadius: 8, color: dark ? '#e0e0e0' : '#333' }}
+                        contentStyle={{ background: dark ? '#1a2236' : '#fff', border: `1px solid ${dark ? '#2a3548' : '#e0e0e0'}`, borderRadius: 8, color: dark ? '#e0e0e0' : '#333' }}
                         labelFormatter={d => `Date: ${d}`}
                       />
                       <Legend wrapperStyle={{ fontSize: 12, color: dark ? '#e0e0e0' : '#333' }} />
-                      <Area yAxisId="left" type="monotone" dataKey="bookings" fill="#7c3aed" fillOpacity={0.15} stroke="#7c3aed" strokeWidth={2} name="Bookings" />
+                      <Area yAxisId="left" type="monotone" dataKey="bookings" fill="#059669" fillOpacity={0.15} stroke="#059669" strokeWidth={2} name="Bookings" />
                       <Bar yAxisId="right" dataKey="revenue" fill="#f59e0b" fillOpacity={0.7} name="Revenue ($)" radius={[4, 4, 0, 0]} />
                     </ComposedChart>
                   </ResponsiveContainer>
