@@ -68,7 +68,7 @@ export default function Register() {
 
             {/* Right Panel - Form */}
             <div className="col-lg-7">
-              <div className="card-body p-5">
+              <div className="card-body p-4 p-lg-5">
                 <div className="text-center mb-4 d-lg-none">
                   <i className="bi bi-person-plus display-4 gradient-text"></i>
                 </div>
@@ -84,7 +84,7 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
                     <label className="form-label fw-semibold" style={{ fontSize: '0.85rem' }}>Register as</label>
-                    <div className="role-selector btn-group w-100" role="group">
+                    <div className="role-selector w-100" role="group" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                       <button type="button" className={`btn ${form.role === 'user' ? 'active' : ''}`}
                         onClick={() => updateForm('role', 'user')}>
                         <i className="bi bi-person me-1"></i>User

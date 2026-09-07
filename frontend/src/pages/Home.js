@@ -78,15 +78,15 @@ export default function Home() {
         <div className="hero-shape" style={{ width: 25, height: 25, background: 'rgba(244,63,94,0.25)', bottom: '30%', left: '15%', animationDuration: '5s', animationDelay: '0.5s' }}></div>
 
         <div className="row align-items-center position-relative" style={{ zIndex: 1 }}>
-          <div className="col-lg-7 p-5">
+          <div className="col-lg-7 p-4 p-lg-5">
             <span className="badge px-3 py-2 rounded-pill mb-3 animate-fade-in delay-1" style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.2)', color: 'var(--text-white)', fontSize: '0.85rem' }}>
               <i className="bi bi-patch-check-fill me-1" style={{ color: '#fbbf24' }}></i> Trusted by 10,000+ Customers
             </span>
-            <h1 className="display-3 fw-bold mb-3 lh-1 animate-fade-in-up delay-2" style={{ letterSpacing: '-1px' }}>
+            <h1 className="display-3 fw-bold mb-3 lh-1 animate-fade-in-up delay-2" style={{ letterSpacing: '-1px', fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>
               Your Home,<br />
               <span className="gradient-text" style={{ WebkitTextFillColor: 'transparent', background: 'linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>Our Experts</span>
             </h1>
-            <p className="fs-5 mb-4 animate-fade-in-up delay-3" style={{ maxWidth: 520, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7 }}>
+            <p className="fs-5 mb-4 animate-fade-in-up delay-3" style={{ maxWidth: 520, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)' }}>
               Connect with verified professionals for all your home services — from electrical repairs to deep cleaning, we've got you covered.
             </p>
             <div className="d-flex gap-3 flex-wrap animate-fade-in-up delay-4">
@@ -206,7 +206,7 @@ export default function Home() {
 
       {/* WHY CHOOSE US */}
       <ScrollReveal>
-        <div className="mb-5 p-5 rounded-4" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
+        <div className="mb-5 p-4 p-lg-5 rounded-4" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
           <h3 className="fw-bold text-center mb-2 d-flex align-items-center justify-content-center">
             <span className="section-icon me-2"><i className="bi bi-patch-check-fill"></i></span>
             Why Choose FixIt?
@@ -259,7 +259,7 @@ export default function Home() {
 
       {/* TESTIMONIALS */}
       <ScrollReveal>
-        <div className="mb-5 p-5 rounded-4" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
+        <div className="mb-5 p-4 p-lg-5 rounded-4" style={{ background: 'var(--surface-2)', border: '1px solid var(--border)' }}>
           <h3 className="fw-bold text-center mb-2">What Our Customers Say</h3>
           <p className="text-muted text-center mb-5" style={{ fontSize: '1.05rem' }}>Hear from people who've used FixIt.</p>
           <div className="row g-4">
@@ -284,9 +284,9 @@ export default function Home() {
 
       {/* CTA */}
       <ScrollReveal>
-        <div className="cta-section mb-4 text-center text-white p-5" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="cta-section mb-4 text-center text-white p-4 p-lg-5" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ position: 'relative', zIndex: 2 }}>
-            <h2 className="fw-bold mb-3" style={{ fontSize: '2.2rem' }}>Ready to Get Started?</h2>
+            <h2 className="fw-bold mb-3" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)' }}>Ready to Get Started?</h2>
             <p className="fs-5 mb-4" style={{ color: 'rgba(255,255,255,0.85)' }}>Join thousands of happy customers. Find your expert today.</p>
             <div className="d-flex justify-content-center gap-3 flex-wrap">
               <Link to="/services" className="btn btn-light btn-lg fw-semibold px-4 rounded-3">

@@ -44,7 +44,7 @@ export default function ChatBot() {
   return (
     <div style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 9999 }}>
       {open && (
-        <div className="animate-scale-in" style={{
+        <div className="animate-scale-in chatbot-window" style={{
           width: 370, height: 520,
           borderRadius: 20, overflow: 'hidden',
           display: 'flex', flexDirection: 'column',

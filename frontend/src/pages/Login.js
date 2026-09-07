@@ -59,7 +59,7 @@ export default function Login() {
 
             {/* Right Panel - Form */}
             <div className="col-lg-7">
-              <div className="card-body p-5">
+              <div className="card-body p-4 p-lg-5">
                 <div className="text-center mb-4 d-lg-none">
                   <i className="bi bi-tools display-4 gradient-text"></i>
                 </div>
@@ -75,7 +75,7 @@ export default function Login() {
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
                     <label className="form-label fw-semibold" style={{ fontSize: '0.85rem' }}>Login as</label>
-                    <div className="role-selector btn-group w-100" role="group">
+                    <div className="role-selector w-100" role="group" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                       {[
                         { role: 'user', icon: 'bi-person', label: 'User' },
                         { role: 'provider', icon: 'bi-person-badge', label: 'Provider' },

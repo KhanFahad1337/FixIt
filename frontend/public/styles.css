@@ -1243,3 +1243,113 @@ a:hover { color: var(--primary-dark); }
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.3);
 }
+
+/* ============================================
+   RESPONSIVE — TABLET (max-width: 992px)
+   ============================================ */
+@media (max-width: 992px) {
+  .hero-section { padding: 3rem 0; }
+  .hero-shape { display: none; }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-section { padding: 2.5rem 0; border-radius: var(--radius-lg); }
+  .hero-section h1 { font-size: 2rem !important; }
+
+  .auth-card .card-body { padding: 1.5rem !important; }
+  .auth-header { padding: 1.5rem !important; }
+
+  .section-icon { width: 36px; height: 36px; font-size: 0.95rem; border-radius: 10px; }
+
+  .process-step { padding: 1.25rem 1rem; }
+  .step-number { width: 40px; height: 40px; font-size: 1rem; }
+
+  .testimonial-card { padding: 1.25rem; }
+  .feature-card { padding: 1.25rem; }
+
+  .cta-section.p-5 { padding: 2rem 1.25rem !important; }
+
+  .category-card { padding: 1.5rem 1rem; }
+  .category-card .icon-wrap { width: 56px; height: 56px; font-size: 1.4rem; }
+
+  .provider-card .card-body { padding: 1.25rem; }
+
+  .table-responsive-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-md); }
+}
+
+/* ============================================
+   RESPONSIVE — SMALL PHONES (max-width: 576px)
+   ============================================ */
+@media (max-width: 576px) {
+  .hero-section { padding: 2rem 0; border-radius: var(--radius-md); }
+  .hero-section .p-5 { padding: 1.5rem !important; }
+  .hero-section h1 { font-size: 1.7rem !important; letter-spacing: -0.5px; }
+  .hero-section p { font-size: 0.95rem !important; }
+
+  .auth-card { border-radius: var(--radius-md) !important; }
+  .auth-card .card-body { padding: 1.25rem !important; }
+  .auth-header { padding: 1.25rem 1rem !important; }
+  .auth-header i.display-5 { font-size: 2rem !important; }
+
+  .role-selector .btn { padding: 0.4rem 0.6rem; font-size: 0.72rem; }
+  .role-selector .btn i { display: none; }
+
+  .stat-card { padding: 1.25rem 0.75rem; }
+  .stat-card h2 { font-size: 1.5rem !important; }
+
+  .category-card { padding: 1.25rem 0.75rem; }
+  .category-card .icon-wrap { width: 48px; height: 48px; font-size: 1.2rem; }
+  .category-card h6 { font-size: 0.8rem; }
+  .category-card small { font-size: 0.7rem; }
+
+  .process-step { padding: 1rem 0.5rem; }
+  .process-step h5 { font-size: 1rem; }
+  .process-step p { font-size: 0.85rem; }
+
+  .testimonial-card { padding: 1rem; }
+  .testimonial-card::before { font-size: 3rem; }
+
+  .feature-card { padding: 1rem; }
+  .feature-card .feature-icon { width: 40px; height: 40px; font-size: 1.1rem; border-radius: 10px; }
+  .feature-card h6 { font-size: 0.85rem; }
+
+  .cta-section .p-5 { padding: 1.5rem 1rem !important; }
+  .cta-section h2 { font-size: 1.4rem !important; }
+
+  .filter-bar { padding: 1rem !important; gap: 0.5rem !important; }
+  .filter-bar select { width: 100% !important; }
+
+  .price-tag { font-size: 1.3rem; }
+
+  .btn-modern { padding: 0.5rem 1rem; font-size: 0.82rem; }
+
+  .section-icon { width: 32px; height: 32px; font-size: 0.85rem; border-radius: 8px; margin-right: 0.5rem; }
+
+  .empty-state { padding: 2.5rem 1rem; }
+  .empty-state .empty-icon { font-size: 2.5rem; }
+}
+
+/* ============================================
+   RESPONSIVE — CHATBOT
+   ============================================ */
+@media (max-width: 480px) {
+  .chatbot-window {
+    width: calc(100vw - 16px) !important;
+    height: calc(100vh - 100px) !important;
+    max-height: 520px;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    margin: 0 8px 8px 8px !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — NO HORIZONTAL OVERFLOW
+   ============================================ */
+* { box-sizing: border-box; }
+.container-fluid { overflow-x: hidden; }

@@ -68,7 +68,7 @@ export default function Providers() {
           <span className="text-muted small">to</span>
           <span className="price-label">${priceRange[1]}</span>
         </div>
-        <div className="d-flex align-items-center gap-2" style={{ minWidth: 200 }}>
+        <div className="d-flex align-items-center gap-2" style={{ minWidth: 0, flex: '1 1 200px' }}>
           <input type="range" className="price-range flex-grow-1" min={0} max={maxPrice} value={priceRange[0]}
             onChange={e => setPriceRange([Math.min(+e.target.value, priceRange[1] - 5), priceRange[1]])} />
           <input type="range" className="price-range flex-grow-1" min={0} max={maxPrice} value={priceRange[1]}
@@ -76,7 +76,7 @@ export default function Providers() {
         </div>
         <div className="vr" style={{ height: 28 }}></div>
         <i className="bi bi-sort-down" style={{ color: 'var(--primary)' }}></i>
-        <select className="form-select form-select-sm" style={{ width: 160, background: 'var(--input-bg)', color: 'var(--text)', border: '1px solid var(--border)' }}
+        <select className="form-select form-select-sm" style={{ width: 'auto', maxWidth: 160, background: 'var(--input-bg)', color: 'var(--text)', border: '1px solid var(--border)' }}
           value={sortBy} onChange={e => setSortBy(e.target.value)}>
           <option value="">Default</option>
           <option value="price-asc">Price: Low to High</option>
