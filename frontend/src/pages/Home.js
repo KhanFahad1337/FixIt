@@ -155,7 +155,7 @@ export default function Home() {
             {professions.map((p, i) => (
               <div className="col-md-4 col-lg-2" key={i}>
                 <Link to={`/services/${p.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-decoration-none">
-                  <div className="category-card" style={{ animationDelay: `${i * 0.08}s` }}>
+                  <div className="category-card h-100 d-flex flex-column align-items-center" style={{ animationDelay: `${i * 0.08}s` }}>
                     <div className="icon-wrap" style={{ background: `${p.color}18`, color: p.color }}>
                       <i className={`bi ${p.icon}`}></i>
                     </div>

@@ -27,14 +27,14 @@ export default function Services() {
         {professions.map((p, i) => (
           <div className="col-md-4 animate-fade-in-up" key={i} style={{ animationDelay: `${i * 0.08}s` }}>
             <Link to={`/services/${p.name.toLowerCase().replace(/\s+/g, '-')}`} className="text-decoration-none">
-              <div className="provider-card" style={{ cursor: 'pointer' }}>
+              <div className="provider-card h-100 d-flex flex-column" style={{ cursor: 'pointer' }}>
                 <div className="provider-header" style={{ position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', top: -30, right: -30, width: 100, height: 100, borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }}></div>
                   <div style={{ position: 'relative', zIndex: 1 }}>
                     <span style={{ fontSize: '3.5rem', lineHeight: 1, filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' }}>{p.emoji}</span>
                   </div>
                 </div>
-                <div className="card-body text-center py-4">
+                <div className="card-body text-center py-4 d-flex flex-column flex-grow-1">
                   <h5 className="fw-bold mb-2" style={{ color: 'var(--text)' }}>{p.name}</h5>
                   <p className="text-muted small mb-3" style={{ lineHeight: 1.5 }}>{p.desc}</p>
                   <span className="btn btn-modern btn-modern-primary w-100">
