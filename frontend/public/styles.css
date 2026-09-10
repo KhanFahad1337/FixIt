@@ -613,6 +613,8 @@ textarea.form-modern { resize: vertical; }
   color: white;
   position: relative;
   overflow: hidden;
+  border-bottom: 3px solid var(--primary);
+  background: var(--gradient-1);
 }
 .auth-header::before {
   content: '';
