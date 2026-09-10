@@ -68,106 +68,55 @@ export default function Home() {
 
   return (
     <div>
-      {/* HERO — Web3 Style */}
-      <div className="hero-section mb-5 text-white animate-fade-in overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #0d1117 40%, #0a0a0a 100%)' }}>
-        {/* Animated mesh gradient blobs */}
-        <div className="mesh-blob" style={{ width: 500, height: 500, background: 'radial-gradient(circle, rgba(0,128,128,0.3) 0%, transparent 70%)', top: '-10%', left: '-5%', animationDuration: '12s' }}></div>
-        <div className="mesh-blob" style={{ width: 400, height: 400, background: 'radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%)', bottom: '-15%', right: '-8%', animationDuration: '15s', animationDelay: '3s' }}></div>
-        <div className="mesh-blob" style={{ width: 300, height: 300, background: 'radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%)', top: '30%', right: '20%', animationDuration: '10s', animationDelay: '1.5s' }}></div>
+      {/* HERO */}
+      <div className="hero-section mb-5 text-white animate-fade-in overflow-hidden">
+        {/* Floating decorative shapes */}
+        <div className="hero-shape" style={{ width: 80, height: 80, background: 'rgba(124,58,237,0.3)', top: '15%', left: '8%', animationDuration: '6s' }}></div>
+        <div className="hero-shape" style={{ width: 50, height: 50, background: 'rgba(6,182,212,0.3)', top: '60%', left: '5%', animationDuration: '8s', animationDelay: '1s' }}></div>
+        <div className="hero-shape" style={{ width: 35, height: 35, background: 'rgba(251,191,36,0.25)', bottom: '20%', right: '25%', animationDuration: '7s', animationDelay: '2s' }}></div>
+        <div className="hero-shape" style={{ width: 60, height: 60, background: 'rgba(16,185,129,0.2)', top: '25%', right: '10%', animationDuration: '9s' }}></div>
+        <div className="hero-shape" style={{ width: 25, height: 25, background: 'rgba(244,63,94,0.25)', bottom: '30%', left: '15%', animationDuration: '5s', animationDelay: '0.5s' }}></div>
 
-        {/* Floating particles */}
-        {[...Array(20)].map((_, i) => (
-          <div key={i} className="hero-particle" style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDuration: `${3 + Math.random() * 7}s`,
-            animationDelay: `${Math.random() * 5}s`,
-            width: `${2 + Math.random() * 3}px`,
-            height: `${2 + Math.random() * 3}px`,
-          }}></div>
-        ))}
-
-        {/* Glowing service orbs */}
-        <div className="service-orb" style={{ top: '10%', left: '5%', '--glow': '#f59e0b', animationDuration: '8s', animationDelay: '0s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-lightning-charge-fill"></i>
-        </div>
-        <div className="service-orb" style={{ top: '50%', left: '3%', '--glow': '#06b6d4', animationDuration: '10s', animationDelay: '1s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-droplet-fill"></i>
-        </div>
-        <div className="service-orb" style={{ bottom: '12%', right: '20%', '--glow': '#8b5cf6', animationDuration: '9s', animationDelay: '2s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-brush-fill"></i>
-        </div>
-        <div className="service-orb" style={{ top: '15%', right: '6%', '--glow': '#0ea5e9', animationDuration: '11s', animationDelay: '0.5s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-snow2"></i>
-        </div>
-        <div className="service-orb" style={{ bottom: '20%', left: '10%', '--glow': '#d97706', animationDuration: '7s', animationDelay: '1.5s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-hammer"></i>
-        </div>
-        <div className="service-orb" style={{ top: '35%', right: '15%', '--glow': '#10b981', animationDuration: '12s', animationDelay: '3s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-stars"></i>
-        </div>
-        <div className="service-orb" style={{ bottom: '30%', left: '22%', '--glow': '#f43f5e', animationDuration: '8.5s', animationDelay: '2.5s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-tools"></i>
-        </div>
-        <div className="service-orb" style={{ top: '5%', right: '28%', '--glow': '#a855f7', animationDuration: '9.5s', animationDelay: '4s' }}>
-          <div className="orb-ring"></div>
-          <i className="bi bi-wrench"></i>
-        </div>
-
-        {/* Animated grid lines */}
-        <div className="hero-grid"></div>
-
-        <div className="row align-items-center position-relative" style={{ zIndex: 2 }}>
+        <div className="row align-items-center position-relative" style={{ zIndex: 1 }}>
           <div className="col-lg-7 p-4 p-lg-5">
-            <span className="badge px-3 py-2 rounded-pill mb-3 animate-fade-in delay-1" style={{ background: 'rgba(0,128,128,0.15)', backdropFilter: 'blur(12px)', border: '1px solid rgba(0,128,128,0.3)', color: '#00b4d8', fontSize: '0.85rem' }}>
+            <span className="badge px-3 py-2 rounded-pill mb-3 animate-fade-in delay-1" style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.2)', color: 'var(--text-white)', fontSize: '0.85rem' }}>
               <i className="bi bi-patch-check-fill me-1" style={{ color: '#fbbf24' }}></i> Trusted by 10,000+ Customers
             </span>
             <h1 className="display-3 fw-bold mb-3 lh-1 animate-fade-in-up delay-2" style={{ letterSpacing: '-1px', fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>
-              Your Home,
-              <br />
-              <span className="holographic-text">Our Experts</span>
+              Your Home,<br />
+              <span className="gradient-text" style={{ WebkitTextFillColor: 'transparent', background: 'linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>Our Experts</span>
             </h1>
-            <p className="fs-5 mb-4 animate-fade-in-up delay-3" style={{ maxWidth: 520, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)' }}>
+            <p className="fs-5 mb-4 animate-fade-in-up delay-3" style={{ maxWidth: 520, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)' }}>
               Connect with verified professionals for all your home services — from electrical repairs to deep cleaning, we've got you covered.
             </p>
             <div className="d-flex gap-3 flex-wrap animate-fade-in-up delay-4">
-              <Link to="/services" className="btn btn-glow-primary btn-lg fw-semibold px-4 rounded-3">
+              <Link to="/services" className="btn btn-light btn-lg fw-semibold px-4 rounded-3 shadow-sm" style={{ transition: 'var(--transition-bounce)' }}>
                 <i className="bi bi-search me-2"></i>Find a Service
               </Link>
-              <Link to="/register?role=provider" className="btn btn-glow-outline btn-lg fw-semibold px-4 rounded-3">
+              <Link to="/register?role=provider" className="btn btn-lg fw-semibold px-4 rounded-3" style={{ border: '2px solid rgba(255,255,255,0.4)', color: 'white', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(4px)', transition: 'var(--transition)' }}>
                 <i className="bi bi-person-plus me-2"></i>Join as Pro
               </Link>
             </div>
             <div className="d-flex align-items-center gap-4 mt-4 animate-fade-in delay-5">
               <div className="d-flex align-items-center gap-2">
                 <div className="d-flex">
-                  {[1,2,3,4,5].map(i => <i key={i} className="bi bi-star-fill" style={{ fontSize: 14, color: '#fbbf24' }}></i>)}
+                  {[1,2,3,4,5].map(i => <i key={i} className="bi bi-star-fill text-warning" style={{ fontSize: 14 }}></i>)}
                 </div>
-                <small style={{ color: 'rgba(255,255,255,0.6)' }}>4.8 average rating</small>
+                <small style={{ color: 'rgba(255,255,255,0.75)' }}>4.8 average rating</small>
               </div>
-              <small style={{ color: 'rgba(255,255,255,0.6)' }}><i className="bi bi-people me-1"></i>{stats.totalProviders || 0}+ pros</small>
+              <small style={{ color: 'rgba(255,255,255,0.75)' }}><i className="bi bi-people me-1"></i>{stats.totalProviders || 0}+ pros</small>
             </div>
           </div>
           <div className="col-lg-5 text-center p-4 d-none d-lg-block animate-slide-right delay-3">
-            <div className="hero-3d-container">
-              <div className="hero-main-orb">
-                <i className="bi bi-tools" style={{ fontSize: '4rem' }}></i>
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+              <div className="display-1" style={{ opacity: 0.9, filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.3))' }}>
+                <i className="bi bi-tools"></i>
               </div>
-              <div className="orbit-ring orbit-1">
-                <div className="orbit-dot" style={{ '--dot-color': '#f59e0b' }}></div>
+              <div style={{ position: 'absolute', top: -10, right: -10, width: 60, height: 60, borderRadius: '50%', background: 'rgba(251,191,36,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(251,191,36,0.4)', animation: 'bounce 2s ease-in-out infinite' }}>
+                <i className="bi bi-check-lg fs-4 text-dark"></i>
               </div>
-              <div className="orbit-ring orbit-2">
-                <div className="orbit-dot" style={{ '--dot-color': '#06b6d4' }}></div>
-              </div>
-              <div className="orbit-ring orbit-3">
-                <div className="orbit-dot" style={{ '--dot-color': '#8b5cf6' }}></div>
+              <div style={{ position: 'absolute', bottom: 0, left: 20, width: 50, height: 50, borderRadius: '50%', background: 'rgba(16,185,129,0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(16,185,129,0.4)', animation: 'bounce 2s ease-in-out 0.5s infinite' }}>
+                <i className="bi bi-star-fill fs-5 text-white"></i>
               </div>
             </div>
           </div>
