@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate PWA Icons</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #1a1a1a; color: white; }
+    .icon-box { display: inline-block; margin: 10px; text-align: center; }
+    .icon-box canvas { border: 1px solid #333; border-radius: 12px; }
+    button { padding: 10px 20px; background: #008080; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin: 10px; }
+    button:hover { background: #00a8a8; }
+  </style>
+</head>
+<body>
+  <h1>FixIt PWA Icon Generator</h1>
+  <p>Click the button to download all icon sizes:</p>
+  <button onclick="downloadAll()">Download All Icons</button>
+  <div id="icons"></div>
+
+  <script>
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="14" fill="#008080"/>
+      <g fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 46 L26 30 L36 36 L50 20"/>
+        <path d="M12 50 Q18 50 22 44 L16 40 Q12 44 12 50"/>
+        <path d="M28 26 Q30 34 36 34 Q38 28 32 24 Z"/>
+        <circle cx="14" cy="48" r="4" fill="white" stroke="none"/>
+        <circle cx="48" cy="22" r="5" fill="white" stroke="none"/>
+      </g>
+    </svg>`;
+
+    const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+    const container = document.getElementById('icons');
+
+    sizes.forEach(size => {
+      const div = document.createElement('div');
+      div.className = 'icon-box';
+      div.innerHTML = `<canvas id="c${size}" width="${size}" height="${size}"></canvas><br><small>${size}x${size}</small>`;
+      container.appendChild(div);
+
+      const canvas = document.getElementById(`c${size}`);
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, size, size);
+      };
+      img.src = 'data:image/svg+xml;base64,' + btoa(svg);
+    });
+
+    function downloadAll() {
+      sizes.forEach(size => {
+        const canvas = document.getElementById(`c${size}`);
+        const link = document.createElement('a');
+        link.download = `icon-${size}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
