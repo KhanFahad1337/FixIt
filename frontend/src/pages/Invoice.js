@@ -27,11 +27,22 @@ export default function Invoice() {
   ];
   const currentStep = statusSteps.findIndex(s => s.value === booking.status);
 
+  const getPaymentDisplay = () => {
+    if (!payment) return null;
+    if (payment.status === 'completed') {
+      return <span className="text-success"><i className="bi bi-check-circle me-1"></i>Paid via {payment.method}</span>;
+    }
+    if (payment.status === 'refunded' || booking.paymentStatus === 'refunded') {
+      return <span className="text-danger"><i className="bi bi-arrow-return-left me-1"></i>Refunded</span>;
+    }
+    return <span className="text-warning"><i className="bi bi-hourglass me-1"></i>Pending</span>;
+  };
+
   return (
     <div className="row justify-content-center animate-fade-in">
-      <div className="col-md-7">
+      <div className="col-md-7" id="invoice-content">
         <div className="card-modern p-4 mb-4">
-          <div className="d-flex justify-content-between align-items-center mb-4">
+          <div className="d-flex justify-content-between align-items-center mb-4 no-print">
             <div>
               <h3 className="fw-bold mb-1">
                 <i className="bi bi-receipt me-2" style={{ color: 'var(--primary)' }}></i>
@@ -42,6 +53,14 @@ export default function Invoice() {
             <button className="btn btn-modern btn-modern-outline" onClick={handlePrint}>
               <i className="bi bi-printer me-1"></i>Print
             </button>
+          </div>
+
+          <div className="d-none d-print-block mb-4">
+            <h3 className="fw-bold mb-1">
+              <i className="bi bi-receipt me-2"></i>
+              Invoice
+            </h3>
+            <small className="text-muted">#{booking._id?.slice(-8).toUpperCase()}</small>
           </div>
 
           <div className="mb-4">
@@ -76,14 +95,20 @@ export default function Invoice() {
                 <small className="text-muted d-block">Service Date</small>
                 <span className="fw-semibold">{new Date(booking.date).toLocaleDateString()} at {booking.time}</span>
               </div>
-              <div className="col-6">
+              <div className="col-6 mb-2">
                 <small className="text-muted d-block">Address</small>
                 <span className="fw-semibold">{booking.address}</span>
               </div>
-              <div className="col-6">
+              <div className="col-6 mb-2">
                 <small className="text-muted d-block">Hours</small>
                 <span className="fw-semibold">{booking.hours} hr(s)</span>
               </div>
+              {booking.provider?.description && (
+                <div className="col-12 mt-2">
+                  <small className="text-muted d-block">Description</small>
+                  <span className="fw-semibold">{booking.provider.description}</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -99,20 +124,14 @@ export default function Invoice() {
             </div>
           </div>
 
-          {payment && (
-            <div className="d-flex justify-content-between p-2 bg-light rounded-3">
-              <span className="text-muted">Payment</span>
-              <span className="fw-semibold">
-                {payment.status === 'completed' ? (
-                  <span className="text-success"><i className="bi bi-check-circle me-1"></i>Paid via {payment.method}</span>
-                ) : (
-                  <span className="text-warning"><i className="bi bi-hourglass me-1"></i>Pending</span>
-                )}
-              </span>
-            </div>
-          )}
+          <div className="d-flex justify-content-between p-2 bg-light rounded-3">
+            <span className="text-muted">Payment</span>
+            <span className="fw-semibold">
+              {getPaymentDisplay()}
+            </span>
+          </div>
         </div>
-        <button className="btn btn-modern btn-modern-outline w-100" onClick={() => navigate('/my-bookings')}>
+        <button className="btn btn-modern btn-modern-outline w-100 no-print" onClick={() => navigate('/my-bookings')}>
           <i className="bi bi-arrow-left me-1"></i>Back to Bookings
         </button>
       </div>

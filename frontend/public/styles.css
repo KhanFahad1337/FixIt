@@ -1353,3 +1353,21 @@ a:hover { color: var(--primary-dark); }
    ============================================ */
 * { box-sizing: border-box; }
 .container-fluid { overflow-x: hidden; }
+
+/* ============================================
+   PRINT — Only invoice content
+   ============================================ */
+@media print {
+  body * { visibility: hidden; }
+  #invoice-content, #invoice-content * { visibility: visible; }
+  #invoice-content {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  .no-print, .navbar-modern, .app-sidebar, .admin-sidebar, .chatbot-window,
+  .theme-toggle, .btn-modern-outline, .admin-content { display: none !important; }
+  .card-modern { border: 1px solid #ddd !important; box-shadow: none !important; }
+  body { background: white !important; }
+}

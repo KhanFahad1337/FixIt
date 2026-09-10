@@ -40,9 +40,9 @@ export default function Profile() {
   return (
     <div className="row g-4 animate-fade-in">
       <div className="col-md-4">
-        <div className="auth-card">
-          <div className="auth-header">
-            <div style={{ width: 80, height: 80, borderRadius: 20, background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, margin: '0 auto 12px' }}>
+        <div className="auth-card" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
+          <div className="auth-header" style={{ background: 'var(--gradient-1)', border: '2px solid var(--primary)', borderBottom: 'none' }}>
+            <div style={{ width: 80, height: 80, borderRadius: 20, background: 'rgba(255,255,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, margin: '0 auto 12px', border: '3px solid rgba(255,255,255,0.3)' }}>
               {user.name?.charAt(0) || 'U'}
             </div>
             <h4 className="fw-bold mb-1">{user.name}</h4>
@@ -66,8 +66,8 @@ export default function Profile() {
         </div>
       </div>
       <div className="col-md-8">
-        <div className="auth-card">
-          <div className="auth-header">
+        <div className="auth-card" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
+          <div className="auth-header" style={{ background: 'var(--gradient-1)', border: '2px solid var(--primary)', borderBottom: 'none' }}>
             <i className="bi bi-pencil-square display-5"></i>
             <h4 className="mt-2 fw-bold">Edit Profile</h4>
           </div>
