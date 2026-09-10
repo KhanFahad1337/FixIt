@@ -70,12 +70,31 @@ export default function Home() {
     <div>
       {/* HERO */}
       <div className="hero-section mb-5 text-white animate-fade-in overflow-hidden">
-        {/* Floating decorative shapes */}
-        <div className="hero-shape" style={{ width: 80, height: 80, background: 'rgba(124,58,237,0.3)', top: '15%', left: '8%', animationDuration: '6s' }}></div>
-        <div className="hero-shape" style={{ width: 50, height: 50, background: 'rgba(6,182,212,0.3)', top: '60%', left: '5%', animationDuration: '8s', animationDelay: '1s' }}></div>
-        <div className="hero-shape" style={{ width: 35, height: 35, background: 'rgba(251,191,36,0.25)', bottom: '20%', right: '25%', animationDuration: '7s', animationDelay: '2s' }}></div>
-        <div className="hero-shape" style={{ width: 60, height: 60, background: 'rgba(16,185,129,0.2)', top: '25%', right: '10%', animationDuration: '9s' }}></div>
-        <div className="hero-shape" style={{ width: 25, height: 25, background: 'rgba(244,63,94,0.25)', bottom: '30%', left: '15%', animationDuration: '5s', animationDelay: '0.5s' }}></div>
+        {/* Floating service icons */}
+        <div className="hero-service-icon" style={{ top: '12%', left: '6%', animationDuration: '7s', animationDelay: '0s' }}>
+          <i className="bi bi-lightning-charge-fill" style={{ color: '#f59e0b' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ top: '55%', left: '4%', animationDuration: '9s', animationDelay: '1.5s' }}>
+          <i className="bi bi-droplet-fill" style={{ color: '#06b6d4' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ bottom: '15%', right: '22%', animationDuration: '8s', animationDelay: '0.8s' }}>
+          <i className="bi bi-brush-fill" style={{ color: '#8b5cf6' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ top: '20%', right: '8%', animationDuration: '10s', animationDelay: '2s' }}>
+          <i className="bi bi-snow2" style={{ color: '#0ea5e9' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ bottom: '25%', left: '12%', animationDuration: '6s', animationDelay: '0.5s' }}>
+          <i className="bi bi-hammer" style={{ color: '#d97706' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ top: '40%', right: '18%', animationDuration: '11s', animationDelay: '3s' }}>
+          <i className="bi bi-stars" style={{ color: '#10b981' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ bottom: '35%', left: '25%', animationDuration: '7.5s', animationDelay: '1s' }}>
+          <i className="bi bi-tools" style={{ color: 'rgba(255,255,255,0.5)' }}></i>
+        </div>
+        <div className="hero-service-icon" style={{ top: '8%', right: '30%', animationDuration: '8.5s', animationDelay: '2.5s' }}>
+          <i className="bi bi-wrench" style={{ color: 'rgba(255,255,255,0.4)' }}></i>
+        </div>
 
         <div className="row align-items-center position-relative" style={{ zIndex: 1 }}>
           <div className="col-lg-7 p-4 p-lg-5">

@@ -688,17 +688,32 @@ textarea.form-modern { resize: vertical; }
 .hero-section h1 { color: white; }
 .hero-section p { color: rgba(255,255,255,0.85); }
 
-/* Floating shapes inside hero */
-.hero-shape {
+/* Floating service icons inside hero */
+.hero-service-icon {
   position: absolute;
-  border-radius: 50%;
-  opacity: 0.08;
-  animation: floatShape linear infinite;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  opacity: 0.2;
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: floatServiceIcon ease-in-out infinite;
+  transition: opacity 0.3s;
 }
-@keyframes floatShape {
+.hero-service-icon:hover {
+  opacity: 0.5;
+  transform: scale(1.2) !important;
+}
+@keyframes floatServiceIcon {
   0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
-  100% { transform: translateY(0) rotate(360deg); }
+  33% { transform: translateY(-18px) rotate(10deg); }
+  66% { transform: translateY(8px) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
 }
 
 /* ============================================
@@ -1251,7 +1266,7 @@ a:hover { color: var(--primary-dark); }
    ============================================ */
 @media (max-width: 992px) {
   .hero-section { padding: 3rem 0; }
-  .hero-shape { display: none; }
+  .hero-service-icon { display: none; }
 }
 
 /* ============================================
