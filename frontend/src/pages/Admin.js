@@ -288,16 +288,23 @@ export default function Admin() {
             <h5 className="fw-bold mb-4"><i className="bi bi-exclamation-triangle me-2" style={{ color: 'var(--primary)' }}></i>No-Show Reports</h5>
             <div className="table-responsive">
               <table className="table table-modern">
-                <thead><tr><th>User</th><th>Provider</th><th>Date</th><th>Amount</th><th>Action</th><th>Status</th><th>Actions</th></tr></thead>
+                    <thead><tr><th>User</th><th>Provider</th><th>Date</th><th>Amount</th><th>Complaint</th><th>Action</th><th>Status</th><th>Actions</th></tr></thead>
                 <tbody>
                   {reports.length === 0 ? (
-                    <tr><td colSpan="7" className="text-center py-4 text-muted">No reports filed.</td></tr>
+                    <tr><td colSpan="8" className="text-center py-4 text-muted">No reports filed.</td></tr>
                   ) : reports.map(r => (
                     <tr key={r._id}>
                       <td className="fw-semibold">{r.user?.name}</td>
                       <td>{r.provider?.name}</td>
                       <td>{r.booking ? new Date(r.booking.date).toLocaleDateString() : '-'}</td>
                       <td className="fw-bold" style={{ color: 'var(--primary)' }}>${r.booking?.totalAmount?.toFixed(2)}</td>
+                      <td style={{ maxWidth: 200 }}>
+                        {r.description ? (
+                          <span className="text-muted small">{r.description}</span>
+                        ) : (
+                          <span className="text-muted small fst-italic">No description</span>
+                        )}
+                      </td>
                       <td>
                         <span className={`badge ${r.action === 'refund' ? 'badge-modern-success' : r.action === 'rebook' ? 'badge-modern-info' : 'badge-modern-primary'}`}>
                           {r.action}
