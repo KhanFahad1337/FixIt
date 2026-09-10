@@ -40,13 +40,13 @@ export default function Profile() {
   return (
     <div className="row g-4 animate-fade-in">
       <div className="col-md-4">
-        <div className="auth-card" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
-          <div className="auth-header" style={{ background: 'var(--gradient-1)', border: '2px solid var(--primary)', borderBottom: 'none' }}>
+        <div className="card-modern" style={{ overflow: 'hidden' }}>
+          <div style={{ background: 'var(--gradient-1)', padding: '2rem 1.5rem', textAlign: 'center', borderBottom: '3px solid var(--primary)' }}>
             <div style={{ width: 80, height: 80, borderRadius: 20, background: 'rgba(255,255,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 36, margin: '0 auto 12px', border: '3px solid rgba(255,255,255,0.3)' }}>
               {user.name?.charAt(0) || 'U'}
             </div>
-            <h4 className="fw-bold mb-1">{user.name}</h4>
-            <p className="mb-0 opacity-75">{user.email}</p>
+            <h4 className="fw-bold mb-1 text-white">{user.name}</h4>
+            <p className="mb-0" style={{ color: 'rgba(255,255,255,0.75)' }}>{user.email}</p>
             <span className="badge bg-white bg-opacity-25 text-white mt-2">{user.role}</span>
           </div>
           <div className="card-body p-4">
@@ -66,10 +66,11 @@ export default function Profile() {
         </div>
       </div>
       <div className="col-md-8">
-        <div className="auth-card" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
-          <div className="auth-header" style={{ background: 'var(--gradient-1)', border: '2px solid var(--primary)', borderBottom: 'none' }}>
-            <i className="bi bi-pencil-square display-5"></i>
-            <h4 className="mt-2 fw-bold">Edit Profile</h4>
+        <div className="card-modern" style={{ overflow: 'hidden' }}>
+          <div style={{ background: 'var(--gradient-1)', padding: '1.5rem', borderBottom: '3px solid var(--primary)' }}>
+            <h4 className="fw-bold text-white mb-0">
+              <i className="bi bi-pencil-square me-2"></i>Edit Profile
+            </h4>
           </div>
           <div className="card-body p-4">
             {saved && <div className="alert alert-modern alert-modern-success"><i className="bi bi-check-circle me-2"></i>Profile updated!</div>}

@@ -9,10 +9,15 @@ export default function Invoice() {
   const navigate = useNavigate();
   const [booking, setBooking] = useState(null);
   const [payment, setPayment] = useState(null);
+  const [report, setReport] = useState(null);
 
   useEffect(() => {
     axios.get(`${API}/bookings/${id}`).then(res => setBooking(res.data)).catch(() => {});
     axios.get(`${API}/payments/${id}`).then(res => setPayment(res.data)).catch(() => {});
+    axios.get(`${API}/noshows/my`).then(res => {
+      const found = res.data.find(r => r.booking?._id === id || r.booking === id);
+      if (found) setReport(found);
+    }).catch(() => {});
   }, [id]);
 
   const handlePrint = () => window.print();
@@ -103,10 +108,10 @@ export default function Invoice() {
                 <small className="text-muted d-block">Hours</small>
                 <span className="fw-semibold">{booking.hours} hr(s)</span>
               </div>
-              {booking.provider?.description && (
+              {report?.description && (
                 <div className="col-12 mt-2">
-                  <small className="text-muted d-block">Description</small>
-                  <span className="fw-semibold">{booking.provider.description}</span>
+                  <small className="text-muted d-block">User Complaint</small>
+                  <span className="fw-semibold" style={{ color: 'var(--danger)' }}>{report.description}</span>
                 </div>
               )}
             </div>
