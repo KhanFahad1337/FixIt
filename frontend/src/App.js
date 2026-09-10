@@ -24,6 +24,7 @@ import Review from './pages/Review';
 import Favorites from './pages/Favorites';
 import Admin from './pages/Admin';
 import AiTools from './pages/AiTools';
+import InstallBanner from './components/InstallBanner';
 
 function AppContent() {
   const { user } = useAuth();
@@ -73,6 +74,7 @@ function App() {
       <Navbar />
       <AppContent />
       <ChatBot />
+      <InstallBanner />
     </ThemeProvider>
   );
 }
