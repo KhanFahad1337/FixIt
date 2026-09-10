@@ -1,29 +1,79 @@
+const { createCanvas } = require('canvas');
 const fs = require('fs');
 const path = require('path');
-
-const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#008080"/>
-  <g fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 46 L26 30 L36 36 L50 20"/>
-    <path d="M12 50 Q18 50 22 44 L16 40 Q12 44 12 50"/>
-    <path d="M28 26 Q30 34 36 34 Q38 28 32 24 Z"/>
-    <circle cx="14" cy="48" r="4" fill="white" stroke="none"/>
-    <circle cx="48" cy="22" r="5" fill="white" stroke="none"/>
-  </g>
-</svg>`;
 
 const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
 const iconsDir = path.join(__dirname, 'frontend', 'public', 'icons');
 
+if (!fs.existsSync(iconsDir)) fs.mkdirSync(iconsDir, { recursive: true });
+
 sizes.forEach(size => {
-  const scaledSvg = svgContent.replace('viewBox="0 0 64 64"', `viewBox="0 0 64 64" width="${size}" height="${size}"`);
-  const htmlContent = `<!DOCTYPE html>
-<html><body style="margin:0;padding:0;background:transparent;">
-<div style="width:${size}px;height:${size}px;">${scaledSvg}</div>
-</body></html>`;
-  
-  fs.writeFileSync(path.join(iconsDir, `icon-${size}.svg`), scaledSvg);
-  console.log(`Created icon-${size}.svg`);
+  const canvas = createCanvas(size, size);
+  const ctx = canvas.getContext('2d');
+  const r = size * 0.22;
+
+  // Background
+  ctx.fillStyle = '#008080';
+  roundRect(ctx, 0, 0, size, size, r);
+  ctx.fill();
+
+  // Wrench handle
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = size * 0.047;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.beginPath();
+  ctx.moveTo(size * 0.28, size * 0.72);
+  ctx.lineTo(size * 0.41, size * 0.47);
+  ctx.lineTo(size * 0.56, size * 0.56);
+  ctx.lineTo(size * 0.78, size * 0.31);
+  ctx.stroke();
+
+  // Pipe/elbow
+  ctx.beginPath();
+  ctx.moveTo(size * 0.19, size * 0.78);
+  ctx.quadraticCurveTo(size * 0.28, size * 0.78, size * 0.34, size * 0.69);
+  ctx.lineTo(size * 0.25, size * 0.63);
+  ctx.quadraticCurveTo(size * 0.19, size * 0.69, size * 0.19, size * 0.78);
+  ctx.stroke();
+
+  // Brush shape
+  ctx.beginPath();
+  ctx.moveTo(size * 0.44, size * 0.41);
+  ctx.quadraticCurveTo(size * 0.47, size * 0.53, size * 0.56, size * 0.53);
+  ctx.quadraticCurveTo(size * 0.59, size * 0.44, size * 0.50, size * 0.38);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Bottom dot
+  ctx.fillStyle = 'white';
+  ctx.beginPath();
+  ctx.arc(size * 0.22, size * 0.75, size * 0.06, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Top-right dot
+  ctx.beginPath();
+  ctx.arc(size * 0.75, size * 0.34, size * 0.078, 0, Math.PI * 2);
+  ctx.fill();
+
+  const buffer = canvas.toBuffer('image/png');
+  const filePath = path.join(iconsDir, `icon-${size}.png`);
+  fs.writeFileSync(filePath, buffer);
+  console.log(`Created icon-${size}.png`);
 });
 
-console.log('\nSVG icons created. For PNG conversion, open generate-icons.html in browser.');
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+console.log('\nAll icons generated!');
