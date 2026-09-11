@@ -25,8 +25,13 @@ export default function Navbar() {
             <i className={`bi ${dark ? 'bi-sun' : 'bi-moon-stars'}`}></i>
           </button>
           {user && (
-            <button className="btn btn-modern btn-modern-outline btn-sm" onClick={handleLogout}>
+            <button className="btn btn-modern btn-modern-outline btn-sm d-none d-lg-inline-flex" onClick={handleLogout}>
               <i className="bi bi-box-arrow-right me-1"></i>Logout
+            </button>
+          )}
+          {user && (
+            <button className="btn btn-modern btn-modern-outline btn-sm d-lg-none" onClick={handleLogout} title="Logout">
+              <i className="bi bi-box-arrow-right"></i>
             </button>
           )}
           <button className="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -52,7 +57,7 @@ export default function Navbar() {
                     }}>
                       {user.name?.charAt(0)}
                     </div>
-                    <span className="fw-semibold">{user.name}</span>
+                    <span className="fw-semibold d-none d-xl-inline">{user.name}</span>
                     <span className={`badge ${user.role === 'admin' ? 'badge-modern-danger' : user.role === 'subadmin' ? 'badge-modern-warning' : user.role === 'provider' ? 'badge-modern-primary' : 'badge-modern-success'} ms-1`}>
                       {user.role === 'subadmin' ? 'Sub Admin' : user.role}
                     </span>
