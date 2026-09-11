@@ -30,7 +30,7 @@ export default function Login() {
         <div className="auth-card">
           <div className="row g-0">
             {/* Left Panel - Illustration */}
-            <div className="col-lg-5 d-none d-lg-flex" style={{ background: 'var(--gradient-hero)', position: 'relative', overflow: 'hidden' }}>
+            <div className="col-lg-5 d-none d-lg-flex align-items-center" style={{ background: 'var(--gradient-hero)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 40%, rgba(124,58,237,0.2) 0%, transparent 60%)' }}></div>
               <div style={{ position: 'absolute', top: '10%', left: '10%', width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.06)', animation: 'heroFloat 6s ease-in-out infinite' }}></div>
               <div style={{ position: 'absolute', bottom: '15%', right: '15%', width: 50, height: 50, borderRadius: '50%', background: 'rgba(255,255,255,0.08)', animation: 'heroFloat 8s ease-in-out infinite reverse' }}></div>

@@ -46,7 +46,7 @@ export default function Register() {
         <div className="auth-card">
           <div className="row g-0">
             {/* Left Panel - Illustration */}
-            <div className="col-lg-5 d-none d-lg-flex" style={{ background: 'var(--gradient-hero)', position: 'relative', overflow: 'hidden' }}>
+            <div className="col-lg-5 d-none d-lg-flex align-items-center" style={{ background: 'var(--gradient-hero)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 60%, rgba(6,182,212,0.15) 0%, transparent 60%)' }}></div>
               <div style={{ position: 'absolute', top: '20%', left: '15%', width: 60, height: 60, borderRadius: '50%', background: 'rgba(255,255,255,0.07)', animation: 'heroFloat 7s ease-in-out infinite' }}></div>
               <div style={{ position: 'absolute', bottom: '25%', right: '10%', width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.06)', animation: 'heroFloat 9s ease-in-out infinite reverse' }}></div>
