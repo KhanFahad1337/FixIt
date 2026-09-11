@@ -28,7 +28,7 @@ export default function Login() {
     <div className="row justify-content-center align-items-center mt-4 mb-5 animate-fade-in" style={{ minHeight: '70vh' }}>
       <div className="col-lg-10">
         <div className="auth-card">
-          <div className="row g-0">
+          <div className="row g-0" style={{ minHeight: '500px' }}>
             {/* Left Panel - Illustration */}
             <div className="col-lg-5 d-none d-lg-flex align-items-center" style={{ background: 'var(--gradient-hero)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 40%, rgba(124,58,237,0.2) 0%, transparent 60%)' }}></div>

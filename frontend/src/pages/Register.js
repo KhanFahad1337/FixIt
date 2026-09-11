@@ -44,7 +44,7 @@ export default function Register() {
     <div className="row justify-content-center align-items-center mt-3 mb-4 animate-fade-in" style={{ minHeight: '75vh' }}>
       <div className="col-lg-10">
         <div className="auth-card">
-          <div className="row g-0">
+          <div className="row g-0" style={{ minHeight: '500px' }}>
             {/* Left Panel - Illustration */}
             <div className="col-lg-5 d-none d-lg-flex align-items-center" style={{ background: 'var(--gradient-hero)', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 60%, rgba(6,182,212,0.15) 0%, transparent 60%)' }}></div>
