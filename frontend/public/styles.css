@@ -1332,6 +1332,11 @@ a:hover { color: var(--primary-dark); }
 
   .empty-state { padding: 2.5rem 1rem; }
   .empty-state .empty-icon { font-size: 2.5rem; }
+
+  .navbar-modern .order-lg-last { gap: 0.25rem !important; }
+  .navbar-modern .order-lg-last .btn { padding: 0.35rem 0.5rem; font-size: 0.75rem; }
+  .navbar-modern .order-lg-last .btn .me-1 { display: none; }
+  .navbar-modern .order-lg-last .navbar-toggler i { font-size: 1.3rem !important; }
 }
 
 /* ============================================
