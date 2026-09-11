@@ -42,7 +42,7 @@ export default function Profile() {
       {/* Left Card - Profile Info */}
       <div className="col-md-4">
         <div style={{
-          background: 'linear-gradient(160deg, #005f5f 0%, #008080 40%, #00a8a8 100%)',
+          background: 'var(--gradient-1)',
           borderRadius: 20,
           padding: '2.5rem 1.5rem 1.5rem',
           position: 'relative',
@@ -127,18 +127,10 @@ export default function Profile() {
 
       {/* Right Card - Edit Profile */}
       <div className="col-md-8">
-        <div style={{
-          background: 'var(--card-bg, #ffffff)',
-          borderRadius: 20,
-          padding: '2.5rem',
-          position: 'relative',
-          overflow: 'hidden',
-          border: '1px solid var(--border-color, #e5e7eb)',
-          height: '100%',
-        }}>
+        <div className="card-modern" style={{ padding: '2.5rem', position: 'relative', overflow: 'hidden', height: '100%' }}>
           {/* Decorative corner */}
           <svg style={{ position: 'absolute', top: -10, right: -10, width: 100, height: 100, opacity: 0.08 }} viewBox="0 0 200 200">
-            <path d="M0,100 Q50,20 100,100 T200,100 V0 H0 Z" fill="var(--primary, #008080)"/>
+            <path d="M0,100 Q50,20 100,100 T200,100 V0 H0 Z" fill="var(--primary)"/>
           </svg>
 
           {/* Header */}
@@ -155,12 +147,12 @@ export default function Profile() {
               <i className="bi bi-pencil-square text-white"></i>
             </div>
             <div>
-              <h4 className="fw-bold mb-0" style={{ color: 'var(--text-primary, #1a1a2e)' }}>Edit Profile</h4>
-              <small style={{ color: 'var(--text-secondary, #6b7280)' }}>Keep your information up to date</small>
+              <h4 className="fw-bold mb-0">Edit Profile</h4>
+              <small className="text-muted">Keep your information up to date</small>
             </div>
           </div>
 
-          <hr style={{ borderColor: 'var(--border-color, #e5e7eb)', margin: '1.2rem 0' }} />
+          <hr className="my-3" />
 
           {/* Form */}
           {saved && (
@@ -171,18 +163,11 @@ export default function Profile() {
 
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="d-flex align-items-center gap-2 fw-semibold mb-2" style={{ color: 'var(--text-primary, #1a1a2e)', fontSize: '0.9rem' }}>
-                <i className="bi bi-person" style={{ color: 'var(--primary, #008080)' }}></i> Full Name
+              <label className="d-flex align-items-center gap-2 fw-semibold mb-2" style={{ fontSize: '0.9rem' }}>
+                <i className="bi bi-person" style={{ color: 'var(--primary)' }}></i> Full Name
               </label>
               <input
-                className="form-control"
-                style={{
-                  borderRadius: 10,
-                  padding: '10px 14px',
-                  border: '1.5px solid var(--border-color, #e5e7eb)',
-                  background: 'var(--input-bg, #f9fafb)',
-                  color: 'var(--text-primary, #1a1a2e)',
-                }}
+                className="form-control form-modern"
                 value={form.name}
                 onChange={e => setForm({ ...form, name: e.target.value })}
                 required
@@ -190,18 +175,11 @@ export default function Profile() {
             </div>
 
             <div className="mb-4">
-              <label className="d-flex align-items-center gap-2 fw-semibold mb-2" style={{ color: 'var(--text-primary, #1a1a2e)', fontSize: '0.9rem' }}>
-                <i className="bi bi-telephone" style={{ color: 'var(--primary, #008080)' }}></i> Phone
+              <label className="d-flex align-items-center gap-2 fw-semibold mb-2" style={{ fontSize: '0.9rem' }}>
+                <i className="bi bi-telephone" style={{ color: 'var(--primary)' }}></i> Phone
               </label>
               <input
-                className="form-control"
-                style={{
-                  borderRadius: 10,
-                  padding: '10px 14px',
-                  border: '1.5px solid var(--border-color, #e5e7eb)',
-                  background: 'var(--input-bg, #f9fafb)',
-                  color: 'var(--text-primary, #1a1a2e)',
-                }}
+                className="form-control form-modern"
                 value={form.phone}
                 onChange={e => setForm({ ...form, phone: e.target.value })}
                 required
@@ -209,18 +187,11 @@ export default function Profile() {
             </div>
 
             <div className="mb-4">
-              <label className="d-flex align-items-center gap-2 fw-semibold mb-2" style={{ color: 'var(--text-primary, #1a1a2e)', fontSize: '0.9rem' }}>
-                <i className="bi bi-geo-alt" style={{ color: 'var(--primary, #008080)' }}></i> Address
+              <label className="d-flex align-items-center gap-2 fw-semibold mb-2" style={{ fontSize: '0.9rem' }}>
+                <i className="bi bi-geo-alt" style={{ color: 'var(--primary)' }}></i> Address
               </label>
               <input
-                className="form-control"
-                style={{
-                  borderRadius: 10,
-                  padding: '10px 14px',
-                  border: '1.5px solid var(--border-color, #e5e7eb)',
-                  background: 'var(--input-bg, #f9fafb)',
-                  color: 'var(--text-primary, #1a1a2e)',
-                }}
+                className="form-control form-modern"
                 value={form.address}
                 onChange={e => setForm({ ...form, address: e.target.value })}
               />
