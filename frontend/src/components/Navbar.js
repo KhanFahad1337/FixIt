@@ -24,6 +24,11 @@ export default function Navbar() {
           <button className="theme-toggle" onClick={toggle} title={`Switch to ${dark ? 'light' : 'dark'} mode`}>
             <i className={`bi ${dark ? 'bi-sun' : 'bi-moon-stars'}`}></i>
           </button>
+          {user && (
+            <button className="btn btn-modern btn-modern-outline btn-sm" onClick={handleLogout}>
+              <i className="bi bi-box-arrow-right me-1"></i>Logout
+            </button>
+          )}
           <button className="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <i className="bi bi-list fs-3"></i>
           </button>
@@ -52,11 +57,6 @@ export default function Navbar() {
                       {user.role === 'subadmin' ? 'Sub Admin' : user.role}
                     </span>
                   </span>
-                </li>
-                <li className="nav-item">
-                  <button className="btn btn-modern btn-modern-outline btn-sm" onClick={handleLogout}>
-                    <i className="bi bi-box-arrow-right me-1"></i>Logout
-                  </button>
                 </li>
               </>
             ) : (
